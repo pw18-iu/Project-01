@@ -61,7 +61,7 @@ Now, -> start_place
     + {hunger_meter > 0} [You decide to go to right door 3] -> door_3
 
 
-    + {hunger_meter > 0} [Check what you already go] -> record -> start_place
+    + {hunger_meter > 0} [Check what you already go and have] -> record -> start_place
     * {hunger_meter > 0}{carrying == "food"} [Eat the food which you prepared (+5 HP)] -> eat_food -> start_place
     + {hunger_meter > 0}{something_from_door_2 == "map"} [Watch the map] -> MAP -> start_place
     + {hunger_meter > 0}{something_from_door_2 == "book"} [Read the book] -> BOOK -> start_place
@@ -216,8 +216,11 @@ You get the treasure and the key which can opens the exit in the start place.
 == record ==
 ~ searching_ability -= 1
 ~ hunger_meter += 1
-{something_from_door_2 == "":Now, you have {carrying != "": "{carrying} you prepared before entering the maze".}  {something_from_door_2 != "": "{something_from_door_2}"}.}
-{something_from_door_2!= "":Now, you have {carrying != "": "{carrying} you prepared before entering the maze"}  {something_from_door_2 != "": "{something_from_door_2}"}.}
+
+{carrying != "": Now, you have "Food you prepared before entering the maze" {something_from_door_2 != "": and "{something_from_door_2}"}.  }
+
+{carrying == "": Now, you have {something_from_door_2 == "": nothing.} {something_from_door_2 != "": "{something_from_door_2}".} }
+
 Visited rooms -------------------------------------------------------------
 There are totally 7 doors/rooms (not including start place)
 - Start (Nothing) ----- Door 1 / Door 2 / Door 3
