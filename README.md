@@ -7,6 +7,7 @@ Peiwen Wang
 pw18-iu
 
 # List the things you added for points
+<!--
 Each passage/arrow is bidirectional.
 Each passage/arror will: HP -1  &  searching_ability +1
 When HP(hungry_meter) = 0, dead end.
@@ -17,8 +18,9 @@ The maze is this map
                                                                                                     ↑                    ↗ (searching ability >= 10)
 ---------------Door 4 (Trap += 1， -8 HP)                                                     Door 5 (noting)
 | Trap = 1              ↑                                                                           ↑
-|------------> Door 1 (Heal, +3 HP)                   Door 2 (Pick 1 tool)              Door 3 (check searching_ability)
+|-----------*> Door 1 (Heal, +3 HP)                   Door 2 (Pick 1 tool)              Door 3 (check searching_ability)
 | Trap = 2                          ↖                      ↑                            ↗
-|------------>                                   start (Nothing)
+|-----------*>                                   start (Nothing)
 | Trap = 3                                              ↓ (need key)
-|------------> outside
+|-----------*> outside
+-->
