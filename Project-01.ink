@@ -84,7 +84,7 @@ Now, -> start_place
 
 
     
-    + {hunger_meter > 0} [Check what you already go] -> record -> door_1
+    + {hunger_meter > 0} [Check what you already go and have] -> record -> door_1
     * {hunger_meter > 0}{carrying == "food"} [Eat the food which you prepared (+5 HP)] -> eat_food -> door_1
     + {hunger_meter > 0}{something_from_door_2 == "map"} [Watch the map] -> MAP -> door_1
     + {hunger_meter > 0}{something_from_door_2 == "book"} [Read the book] -> BOOK -> door_1
@@ -106,7 +106,7 @@ Now, -> start_place
     + {hunger_meter > 0} [Go back, which is start palce] -> start_place
 
 
-    + {hunger_meter > 0} [Check what you already go] -> record -> door_2
+    + {hunger_meter > 0} [Check what you already go and have] -> record -> door_2
     * {hunger_meter > 0}{carrying == "food"} [Eat the food which you prepared (+5 HP)] -> eat_food -> door_2
     + {hunger_meter > 0}{something_from_door_2 == "map"} [Watch the map] -> MAP -> door_2
     + {hunger_meter > 0}{something_from_door_2 == "book"} [Read the book] -> BOOK -> door_2
@@ -127,7 +127,7 @@ There is a strange device in this room 3. You can check your abilities.
     + {hunger_meter > 0} [Go back, which is start palce] -> start_place
     
     
-    + {hunger_meter > 0} [Check what you already go] -> record -> door_3
+    + {hunger_meter > 0} [Check what you already go and have] -> record -> door_3
     * {hunger_meter > 0}{carrying == "food"} [Eat the food which you prepared (+5 HP)] -> eat_food -> door_3
     + {hunger_meter > 0}{something_from_door_2 == "map"} [Watch the map] -> MAP -> door_3
     + {hunger_meter > 0}{something_from_door_2 == "book"} [Read the book] -> BOOK -> door_3
@@ -161,7 +161,7 @@ There is nothing in this room 5.
     * {hunger_meter > 0}{searching_ability >= 10} [You find a hidden passage. Enter] -> door_7
     
     
-    + {hunger_meter > 0} [Check what you already go] -> record -> door_5
+    + {hunger_meter > 0} [Check what you already go and have] -> record -> door_5
     * {hunger_meter > 0}{carrying == "food"} [Eat the food which you prepared (+5 HP)] -> eat_food -> door_5
     + {hunger_meter > 0}{something_from_door_2 == "map"} [Watch the map] -> MAP -> door_5
     + {hunger_meter > 0}{something_from_door_2 == "book"} [Read the book] -> BOOK -> door_5
@@ -182,7 +182,7 @@ There is nothing in this room 5.
     + [Go back] -> door_5
     
     
-    + {hunger_meter > 0} [Check what you already go] -> record -> door_6
+    + {hunger_meter > 0} [Check what you already go and have] -> record -> door_6
     * {hunger_meter > 0}{carrying == "food"} [Eat the food which you prepared (+5 HP)] -> eat_food -> door_6
     + {hunger_meter > 0}{something_from_door_2 == "map"} [Watch the map] -> MAP -> door_6
     + {hunger_meter > 0}{something_from_door_2 == "book"} [Read the book] -> BOOK -> door_6
@@ -201,7 +201,7 @@ You get the treasure and the key which can opens the exit in the start place.
     + {hunger_meter > 0} [Go Back, which is door 6] -> door_6
     
 
-    + {hunger_meter > 0} [Check what you already go] -> record -> door_7
+    + {hunger_meter > 0} [Check what you already go and have] -> record -> door_7
     * {hunger_meter > 0}{carrying == "food"} [Eat the food which you prepared (+5 HP)] -> eat_food -> door_7
     + {hunger_meter > 0}{something_from_door_2 == "map"} [Watch the map] -> MAP -> door_7
     + {hunger_meter > 0}{something_from_door_2 == "book"} [Read the book] -> BOOK -> door_7
@@ -216,6 +216,8 @@ You get the treasure and the key which can opens the exit in the start place.
 == record ==
 ~ searching_ability -= 1
 ~ hunger_meter += 1
+{something_from_door_2 == "":Now, you have {carrying != "": "{carrying} you prepared before entering the maze".}  {something_from_door_2 != "": "{something_from_door_2}"}.}
+{something_from_door_2!= "":Now, you have {carrying != "": "{carrying} you prepared before entering the maze"}  {something_from_door_2 != "": "{something_from_door_2}"}.}
 Visited rooms -------------------------------------------------------------
 There are totally 7 doors/rooms (not including start place)
 - Start (Nothing) ----- Door 1 / Door 2 / Door 3

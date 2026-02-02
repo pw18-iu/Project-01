@@ -8,10 +8,7 @@ pw18-iu
 
 # List the things you added for points
 <!--
-Each passage/arrow is bidirectional.
-Each passage/arror will: HP -1  &  searching_ability +1
-When HP(hungry_meter) = 0, dead end.
-The maze is this map
+The maze design is:
                                                                                              Door 7 (Get key to leave)
                                                                                                     ↑                   ↖
                                                                                               Door 6 (monster)          hiddent room 
@@ -24,3 +21,11 @@ The maze is this map
 | Trap = 3                                              ↓ (need key)
 |-----------*> outside
 -->
+I hope to get the full score, but I create quite lots of options, I am not able to test all of them completely, so there might be a few bugs.
+
+The short story is set in a maze, and the player is currently trying to find an exit. There are eight rooms in total, including seven doors and one starting room. And there are more than 8 knot structures.
+
+
+Each passage/arrow is bidirectional.
+Each passage/arror will: HP -1  &  searching_ability +1
+When HP(hungry_meter) = 0, dead end.
