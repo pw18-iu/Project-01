@@ -26,7 +26,7 @@ I hope to get the full score, but I create quite lots of options, I am not able 
 The short story is set in a maze, and the player is currently trying to find an exit. There are eight rooms in total, including seven doors and one starting room. And there are more than 8 knot structures.
 After entering each door, an option called “Check what you already go and have” is appearing, allowing the player to check the map and view the items they currently have.
 The player is basically having three attributes: Hunger Meter (= HP), searching ability, and the items they currently have, I will describe the specific impacts later.
-
+Every time you choose to enter one door, it will automatically show your hungry_meter / HP (== function hunger_level == in line 352)
 
 Beyond the requirements listed above, I am now explaining the modifications and improvements I am making to the project. (The corresponding line numbers may be changing after the modifications the inky, so they may not be matching my original text exactly.)
 
@@ -35,7 +35,7 @@ Each passage is bidirectional.
 Each passage will: HP -1  &  searching_ability +1
 When HP(hungry_meter) = 0, dead end.
 
-Player:
+Player difference:
 == choose_character == in line 33
 John, has higher basic HP/hunger meter 17/10
 Robert, has higher basic searching ability = 5
@@ -44,7 +44,7 @@ Mary, has basic tool "food", which can eat directly for + 5 HP (== eat_food == i
 
 There are 2 ways to win:
 1. Get the key and come back to start place to leave. (in line 70 in == start_place ==)
-2. Go the Door 4 three times, and it will send the player to leave. (== door_4 == in line 139)
+2. Go the Door 4 three times, and it will send the player to leave. (== door_4 == in line 139). And hint of Door 4 is in: == function hunger_level == line 309.
 if you are John, you have enough HP to directly enter Door 4 (each time -8 HP) three times.
 
 There are 2 ways to get key:
