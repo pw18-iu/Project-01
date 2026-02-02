@@ -220,12 +220,13 @@ Visited rooms -------------------------------------------------------------
 There are totally 7 doors/rooms (not including start place)
 - Start (Nothing) ----- Door 1 / Door 2 / Door 3
 {door_1: - Door 1 (Heal, + 3 HP) ----- Door 1 / Door 2 / Door 3}
-{door_2: - Door 2 (Pick only one times) ----- Door 1 / Door 3}
-{door_3: - Door 3 (Check) ----- Door 5 / Door 2 / Start}
+{door_2: - Door 2 ( Pick {something_from_door_2}) ----- Door 1 / Door 3}
+{door_3: - Door 3 (Check ability) ----- Door 5 / Door 2 / Start}
 {door_4: - Door 4 (Trap and a gimmick, -8 HP) ----- Door 5 / Door 2 / Start}
 {door_5: - Door 5 (Nothing, but ...)----- Door 6 / Door 3}
 {door_6: - Door 6 (Monster)  ----- Door 7 / Door 5}
 {door_7: - Door 7 (Target) --- Door 6}
+{searching_ability >= 10: - hidden passage --- Door 7 / Door 5}
 Split line------------------------------------------------------------------
 ->->
 
@@ -236,16 +237,16 @@ Map:
 You can find one key in Door 7 and exit the maze in the start.
 - Start (Nothing) ----- Door 1 / Door 2 / Door 3
 - Door 1 (Heal, + 3 HP) ----- Door 4 / Door 2 / Start
-- DOor 2 (Pick only one times) ----- Door 1 / Door 3
-- Door 3 (Check) ----- Door 5 / Door 2 / Start
+- DOor 2 ( Pick {something_from_door_2}) ----- Door 1 / Door 3
+- Door 3 (Check ability) ----- Door 5 / Door 2 / Start
 - Door 4 (Trap and a gimmick, -8 HP) ----- Automatic transmission
-- Door 5 (Nothing, but something hidden) ----- Door 6 / ? / Door 3
+- Door 5 (Nothing, but something hidden) ----- Door 6 / hidden passage / Door 3
 - Door 6 (Monster) ----- Door 7 / Door 5
-- Door 7 (Target) --- Door 6 / ?
+- Door 7 (Target) --- Door 6 / hidden passage
 ->->
 
 == eat_food ==
-    ~ searching_ability -= 1
+~ searching_ability -= 1
     {carrying == "food":
         You eat the food.
         ~ hunger_meter = hunger_meter + 6
@@ -261,16 +262,17 @@ Also, Door 4 is Trap room. However, after entering three times, it will send you
 ->->
 
 == CAN ==
-~ hunger_meter = 10
 ~ searching_ability = searching_ability - 1
 {can_result()}
 ->->
 == function can_result ==
 {hunger_meter >= 9:
+    ~ hunger_meter = 10
     ~ return "This smells awful, you've already thrown up. (HP becomes 9/10)"
-- else:
-    ~ return "It smells a bit unpleasant, but it tastes good. (HP becomes 9/10)"
 }
+ ~ hunger_meter = 10
+ ~ return "It smells a bit unpleasant, but it tastes good. (HP becomes 9/10)"
+
 
 == selecting == 
 ~ hunger_meter = hunger_meter + 1
