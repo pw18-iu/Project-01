@@ -65,10 +65,10 @@ Next, I will introduce different room/door
 1. == start_place == (line 54): Nothing special
 2. == door_1 ==(line 75): every time you choose enter door 1, your HP +3 (line 76)
 3. == door_2 ==(line 96): you can pick one item (== selecting == in 282).
-a. map(== map == in line 238): you can directly get the whole routes.
-b. book(== BOOK == in line 262): you can directly know the requirement of hidden passage to go to door 7 and the secret of using door 4 to leave.
-c. Can of Surströmming (== CAN == and == function can_result == in line 269): let you HP become 9/10; In door 6 fighting, when your HP>=15 or HP<=5, you can defeat the monster(line 327 in == Fighting).
-d. weapon(line 297): only when you searching_ability <= 6, you can choose it, it use to defeat the monster when you HP + searching_ability >= 15 (line 325 in == Fighting ==)
+    a. map(== map == in line 238): you can directly get the whole routes.
+    b. book(== BOOK == in line 262): you can directly know the requirement of hidden passage to go to door 7 and the secret of using door 4 to leave.
+    c. Can of Surströmming (== CAN == and == function can_result == in line 269): let you HP become 9/10; In door 6 fighting, when your HP>=15 or HP<=5, you can defeat the monster(line 327 in == Fighting).
+    d. weapon(line 297): only when you searching_ability <= 6, you can choose it, it use to defeat the monster when you HP + searching_ability >= 15 (line 325 in == Fighting ==)
 4. == door_3 == (line 118): you can only check your seaching_ability here (line 302 == check_ability ==)
 5. == door_4 == (line 139): Go the Door 4 three times, and it will send the player to leave.
 6. == door_5 == (line 153): just checking whether your searching_ability >= 10 to open the hidden passage.
