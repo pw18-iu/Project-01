@@ -169,7 +169,7 @@ There is nothing in this room 5.
     * {hunger_meter <= 0} -> hungry_end
 -> END
 
-
+    
 == door_6 ==
 ~ hunger_meter = hunger_meter - 1
 ~ searching_ability = searching_ability + 1
@@ -325,7 +325,7 @@ Each time you enter a room, you can improve your searching ability (+1). If your
 * {something_from_door_2 == "weapon"}{hunger_meter + searching_ability >= 15} [You can use weapon to win] -> win
 * {something_from_door_2 == "weapon"}{hunger_meter + searching_ability < 15} [Seems you cannot win with the weapon, leave] -> leave
 * {something_from_door_2 == "can"}{hunger_meter >= 15} [You can win by throwing the can of Surströmming] -> win
-* {something_from_door_2 == "can"}{hunger_meter <= 2} [You can win by opening the can of Surströmming] -> win
+* {something_from_door_2 == "can"}{hunger_meter <= 5    } [You can win by opening the can of Surströmming] -> win
 * {hunger_meter >= 20}[You feel very very very very good (HP >= 20)] -> win
 + [You feel you cannot win, leave] -> leave
 -> END
